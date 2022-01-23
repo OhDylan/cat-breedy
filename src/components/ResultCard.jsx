@@ -38,6 +38,7 @@ const ResultCard = (result) => {
                             infinite={true}
                             arrows={true}
                             style={{backgroundColor: "black"}}
+                            effect="fade"
                         >
                             {thumbnail.map((image) => {
                                 return (
