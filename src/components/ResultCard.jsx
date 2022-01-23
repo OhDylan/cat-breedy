@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Card, Col, Carousel, Typography } from 'antd';
+import { Card, Col, Carousel, Typography, Spin } from 'antd';
 
 import placeholderImage from '../assets/placeholder.jpg';
 
@@ -8,8 +8,10 @@ const { Text } = Typography;
 const ResultCard = (result) => {
     const breed = result.result;
     const [thumbnail, setThumbnail] = useState([]);
+    const [loadingImage, setLoadingImage] = useState(true);
 
     useEffect(() => {
+        setLoadingImage(true)
         fetch(`https://api.thecatapi.com/v1/images/search?breed_id=${breed.id}&limit=100`)
             .then(res => res.json())
             .then(data => {
@@ -21,8 +23,10 @@ const ResultCard = (result) => {
                 {
                     setThumbnail([]);
                 }
+                setLoadingImage(false)
             })
             .catch(err => console.error(err))
+        
     }, [breed]);
 
     return (
@@ -47,8 +51,9 @@ const ResultCard = (result) => {
                                         </div>
                                 )
                             })}
-                        </Carousel>) :
-                        (<img src={placeholderImage} alt={breed.name} style={{height: 400, width: "100%"}} />)
+
+                        </Carousel>) : (loadingImage ? <Spin style={{height: 400, width: "100%", marginTop: "30%"}} /> :
+                        (<img src={placeholderImage} alt={breed.name} style={{height: 400, width: "100%"}} />))
                     } 
                 >
                         <div style={{marginBottom: "1.5rem"}} ><Text strong style={{fontSize: "1.2rem"}}>{breed.name}</Text></div>

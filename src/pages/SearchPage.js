@@ -36,9 +36,9 @@ const SearchPage = () => {
     }, []);
 
     useEffect(() => {
-        if(query?.length > 2){
+        if(debouncedQuery?.length > 2){
             const fetchResults = () => {
-                fetch(`https://api.thecatapi.com/v1/breeds/search?q=${query}`)
+                fetch(`https://api.thecatapi.com/v1/breeds/search?q=${debouncedQuery}`)
                 .then(result => result.json())
                 .then(data => {
                     let parsedResults = data.map((result) => {
