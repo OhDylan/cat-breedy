@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# Cat Breedy
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A single page app that provides the functionality to search for cat breeds and their pictures.
 
-## Available Scripts
+> ###### Frontend: React, Ant Design Library
+> ###### API: The Cat API
 
-In the project directory, you can run:
+This is my second time using Ant Design library and it is getting more and more handy. 
 
-### `npm start`
+Please check out the live demo here:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[Cat Breedy](https://cat-breedy.vercel.app/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+You will be greeted with a landing page. Click on "Explore" to start the search.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![cat_breedy_landing](https://user-images.githubusercontent.com/49362324/150684079-f23fc553-9608-4fef-b89a-1ac906237968.png)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+When you landed on the search route, all 67 breeds will be fetched and paginated (9 in a page). You can click through all the pages.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Start searching for cat breeds, typing in "American" in the search box. You will expect to see the suggestions dropdown after 1 second (I think it would be better to put 500ms) as custom debounce hook is wrapped on the query.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Images are lazy loaded with Carousel component in Ant Design. React Slicker is working underneath the hood, however it would be great if Carousel component is able to show arrows for next and previous pages. 
 
-### `npm run eject`
+You can sort the breeds according to ascending orders of their names, lifespan and weight. Lifespan and weight are ranges, and therefore they are sorted based on averages. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![cat_breedy_filter](https://user-images.githubusercontent.com/49362324/150684381-1c9db1c0-68ab-447e-acf0-92b05f5e3a4f.png)
