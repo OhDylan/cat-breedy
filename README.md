@@ -1,6 +1,6 @@
 # Cat Breedy
 
-A single page app that provides the functionality to search for cat breeds and their pictures.
+A single page app that provides the functionality to search for cat breeds and their pictures. 
 
 > ###### Frontend: React, Ant Design Library
 > ###### API: The Cat API
